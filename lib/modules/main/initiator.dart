@@ -15,10 +15,6 @@ class MainInitiator {
   late MediaPlayerBloc _playerBloc;
 
   init() {
-    _bloc = MusicListBloc();
-    _playerBloc = MediaPlayerBloc(audioPlayer: _audioPlayer);
-    _playerBloc.add(MediaPlayerStartListen());
-
     _searchController = TextEditingController();
     _searchFocusNode = FocusNode();
 
@@ -26,6 +22,10 @@ class MainInitiator {
 
     _audioPlayer = AudioPlayer();
     _audioPlayer.setVolume(100);
+
+    _bloc = MusicListBloc();
+    _playerBloc = MediaPlayerBloc(audioPlayer: _audioPlayer);
+    _playerBloc.add(MediaPlayerStartListen());
   }
 
   dispose() {
