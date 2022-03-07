@@ -14,7 +14,25 @@ class MusicListLoading extends MusicListState {}
 
 class MusicListLoaded extends MusicListState {
   final List<Result>? musics;
-  MusicListLoaded({this.musics});
+  final Result? musicPlayed;
+
+  MusicListLoaded({
+    this.musics,
+    this.musicPlayed,
+  }) : super([
+          musics,
+          musicPlayed,
+        ]);
+
+  MusicListLoaded copyWith({
+    List<Result>? musics,
+    Result? musicPlayed,
+  }) {
+    return MusicListLoaded(
+      musics: musics,
+      musicPlayed: musicPlayed ?? this.musicPlayed,
+    );
+  }
 }
 
 class MusicListError extends MusicListState {
