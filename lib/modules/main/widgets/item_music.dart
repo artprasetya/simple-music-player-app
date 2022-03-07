@@ -71,7 +71,10 @@ class ItemMusic extends StatelessWidget {
               // This widget will show if the song is playing or not
               if (isPlaying == true) ...[
                 const SizedBox(width: 16),
-                const Icon(Icons.play_circle_filled),
+                const Icon(
+                  Icons.play_arrow_sharp,
+                  color: Colors.green,
+                ),
               ],
             ],
           ),
