@@ -19,6 +19,14 @@ class MediaPlayerProps {
   });
 }
 
+/// [MediaPlayerComponent] is a component that display the media player.
+/// This component handle the audio player and the audio player button.
+///
+/// This component will show  when the [MediaPlayerProps.isPlaying] is true.
+/// Inside this component will display song title, artist name, album name.
+///
+/// And handle the audio player button depending on the [MediaPlayerProps.processingState].
+///
 class MediaPlayerComponent extends StatelessWidget {
   final MediaPlayerProps props;
 

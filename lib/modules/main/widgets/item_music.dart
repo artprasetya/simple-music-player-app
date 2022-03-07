@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// This is a reusable widget that can be used to display a list of items.
+/// It is used in the [MusicListComponent] to display the list of Music items.
+///
 class ItemMusic extends StatelessWidget {
   final String songName;
   final String artist;

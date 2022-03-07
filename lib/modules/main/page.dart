@@ -9,6 +9,10 @@ import 'package:simple_music_player_app/modules/main/components/music_list.dart'
 import 'package:simple_music_player_app/modules/main/initiator.dart';
 import 'package:simple_music_player_app/modules/main/view.dart';
 
+/// [MainPage] is [StatefulWidget] has a responsibility as
+/// a bridge between [MainView] and [MainInitiator],
+/// where [MusicListProps] and [MediaPlayerProps] will be initialized on [MainPage].
+///
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -36,6 +40,9 @@ class _MainPageState extends State<MainPage> {
     Result? _musicPlaying;
     bool? _showMediaPlayer;
 
+    /// This is [BlocConsumer] which will be used
+    /// to listen [MediaPlayerBloc].
+    ///
     return BlocConsumer(
       bloc: _initiator.playerBloc,
       listener: (context, MediaPlayerState mpState) {
@@ -49,6 +56,8 @@ class _MainPageState extends State<MainPage> {
         bool? _isPlaying = false;
         ProcessingState? _processingState;
 
+        /// [StreamBuilder] will be used to Stream the [PlayerState].
+        ///
         return StreamBuilder<PlayerState>(
             stream: _initiator.audioPlayer.playerStateStream,
             builder: (context, snapshot) {
@@ -56,6 +65,8 @@ class _MainPageState extends State<MainPage> {
               _isPlaying = _playerState?.playing ?? false;
               _processingState = _playerState?.processingState;
 
+              /// [BlocBuilder] will be used to listen [MusicListBloc].
+              ///
               return BlocBuilder(
                 bloc: _initiator.bloc,
                 builder: (context, MusicListState state) {

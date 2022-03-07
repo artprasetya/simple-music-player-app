@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:simple_music_player_app/modules/main/components/media_player.dart';
 import 'package:simple_music_player_app/modules/main/components/music_list.dart';
 
+/// [MainView] is the main view of the app.
+/// It contains the [MusicListComponent] and the [MediaPlayerComponent].
+/// 
 class MainView extends StatelessWidget {
   final MusicListProps musicListProps;
   final MediaPlayerProps mediaPlayerProps;

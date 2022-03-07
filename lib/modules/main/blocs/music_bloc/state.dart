@@ -1,5 +1,8 @@
 part of 'bloc.dart';
 
+
+/// [MusicListState] is the state of the [MusicListBloc]
+/// 
 @immutable
 abstract class MusicListState extends Equatable {
   MusicListState([mProps = const []]) : this._mProps = mProps;

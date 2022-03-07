@@ -24,6 +24,14 @@ class MusicListProps {
   });
 }
 
+/// This is the component will display in [MainView]. This component has responsibility to display
+/// the list of music and the search field.
+/// This component will handle view depending on the state.
+///
+/// For example, if the state is loading, it will display a [CircularProgressIndicator].
+/// If the state is error, it will display the [Text] with error message.
+/// If the state is success, it will display the [ListView] list of music.
+///
 class MusicListComponent extends StatelessWidget {
   final MusicListProps props;
 

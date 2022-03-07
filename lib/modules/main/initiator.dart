@@ -37,15 +37,23 @@ class MainInitiator {
     _audioPlayer.dispose();
   }
 
-  /// Paramters
-  ///
+  /**
+   * Paramters
+   */
+
   MusicListBloc get bloc => _bloc;
   MediaPlayerBloc get playerBloc => _playerBloc;
   TextEditingController get searchController => _searchController;
   FocusNode get searchFocusNode => _searchFocusNode;
   AudioPlayer get audioPlayer => _audioPlayer;
 
-  /// Functions
+  /** 
+   * Functions 
+   *  */
+
+  /// [onSearchChanged] is called when the user changes the search text.
+  /// It debounces the search so that it only fires when the user stops typing.
+  /// It then calls [MusicListEventGetData] to get the data from the API.
   ///
   void onSearchChanged(String query) {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
@@ -60,9 +68,19 @@ class MainInitiator {
     });
   }
 
+  /// This function is used to play the music.
+  /// It will trigger the [MediaPlayerPlay] event.
+  ///
   void onTapItem(Result result) =>
       _playerBloc.add(MediaPlayerPlay(playMusic: result));
 
+  /// This [onTapPlayerButton] is used to handle the player button action.
+  /// Action depends on the current [PlayerState].
+  ///
+  /// If the player is playing, it will trigger [MediaPlayerPause] event.
+  /// If the player is paused, it will trigger [MediaPlayerPlay] event.
+  /// If the player is completed, it will trigger [MediaPlayerRepeat] event.
+  ///
   void onTapPlayerButton() {
     if (_playerBloc.state is! MediaPlayerOnListen) return;
     MediaPlayerOnListen _state = _playerBloc.state as MediaPlayerOnListen;

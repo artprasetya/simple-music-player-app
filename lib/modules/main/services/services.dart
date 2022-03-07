@@ -4,10 +4,13 @@ import 'package:simple_music_player_app/helper/helper.dart';
 import 'package:simple_music_player_app/models/result.dart';
 
 class MainServices {
-  // This service is responsible for getting the data from the server
+  /// Initialize the Dio object and endpoint;
   final String _endpoint = "https://itunes.apple.com/search";
   final Dio _dio = Dio();
 
+  /// This is the function that will be used to fetch the data from the API
+  /// It will return a [ResultViewModel] object.
+  ///
   Future<ResultViewModel?> getData(String? query) async {
     try {
       Response response = await _dio.get(
