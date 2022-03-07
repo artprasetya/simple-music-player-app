@@ -26,7 +26,10 @@ class MainView extends StatelessWidget {
 
             // Media player
             if (showMediaPlayer == true)
-              MediaPlayerComponent(props: mediaPlayerProps),
+              MediaPlayerComponent(
+                key: ValueKey('media-player-component'),
+                props: mediaPlayerProps,
+              ),
           ],
         ),
       ),

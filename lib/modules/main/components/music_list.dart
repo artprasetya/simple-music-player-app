@@ -74,6 +74,7 @@ class MusicListComponent extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     Result music = props.musicList[index];
                     return ItemMusic(
+                      key: ValueKey('item_music_${music.trackId}'),
                       songName: music.trackName ?? 'Unknown',
                       artist: music.artistName ?? 'Unknown',
                       album: music.collectionName ?? 'Unknown',

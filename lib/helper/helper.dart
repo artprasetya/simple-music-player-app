@@ -22,18 +22,21 @@ class Helper {
       );
     } else if (isPlaying != true) {
       return IconButton(
+        key: ValueKey('media-player-play-button'),
         icon: Icon(Icons.play_arrow),
         iconSize: 32,
         onPressed: onTap,
       );
     } else if (processingState != ProcessingState.completed) {
       return IconButton(
+        key: ValueKey('media-player-pause-button'),
         icon: Icon(Icons.pause),
         iconSize: 32,
         onPressed: onTap,
       );
     } else {
       return IconButton(
+        key: ValueKey('media-player-repeat-button'),
         icon: Icon(Icons.replay),
         iconSize: 32,
         onPressed: onTap,
