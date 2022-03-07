@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:simple_music_player_app/modules/main/components/lists/music_list.dart';
+import 'package:simple_music_player_app/modules/main/components/media_player.dart';
+import 'package:simple_music_player_app/modules/main/components/music_list.dart';
 
 class MainView extends StatelessWidget {
   final MusicListProps musicListProps;
+  final MediaPlayerProps mediaPlayerProps;
+  final bool? showMediaPlayer;
 
   const MainView({
     Key? key,
     required this.musicListProps,
+    required this.mediaPlayerProps,
+    this.showMediaPlayer = false,
   }) : super(key: key);
 
   @override
@@ -19,7 +24,9 @@ class MainView extends StatelessWidget {
             // Search and List of music
             MusicListComponent(props: musicListProps),
 
-            // Music player
+            // Media player
+            if (showMediaPlayer == true)
+              MediaPlayerComponent(props: mediaPlayerProps),
           ],
         ),
       ),
