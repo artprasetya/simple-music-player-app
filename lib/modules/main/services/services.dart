@@ -4,7 +4,7 @@ import 'package:simple_music_player_app/helper/helper.dart';
 import 'package:simple_music_player_app/models/result.dart';
 
 class MainServices {
-  /// Initialize the Dio object and endpoint;
+  /// Initialize the [Dio] object and endpoint;
   final String _endpoint = "https://itunes.apple.com/search";
   final Dio _dio = Dio();
 
