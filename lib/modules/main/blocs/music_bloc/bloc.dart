@@ -21,11 +21,17 @@ class MusicListBloc extends Bloc<MusicListEvent, MusicListState> {
     }
   }
 
+  /// This stream hadle if event [MusicListEventGetData] is triggered
+  ///
   Stream<MusicListState> _mapMusicListEventGetDataToState(
     MusicListEventGetData event,
   ) async* {
     yield MusicListLoading();
 
+    /// Get data from [MainService]
+    /// If success, then yield [MusicListLoaded]
+    /// If failed, then yield [MusicListError]
+    /// 
     try {
       ResultViewModel? response = await _service?.getData(event.query);
       yield MusicListLoaded(musics: response?.results ?? []);
