@@ -8,12 +8,14 @@ class MusicListProps {
   final List<Result> musicList;
   final TextEditingController searchController;
   final FocusNode searchFocusNode;
+  final int? onPlayMusicTrackId;
   final Function(String) onSearchChanged;
   final Function(Result) onTapItem;
 
   MusicListProps({
     this.isLoading = false,
     this.errorMessage,
+    this.onPlayMusicTrackId,
     required this.musicList,
     required this.searchController,
     required this.searchFocusNode,
@@ -78,6 +80,7 @@ class MusicListComponent extends StatelessWidget {
                       imageUrl: music.artworkUrl100 ??
                           'https://via.placeholder.com/100x100',
                       musicUrl: '',
+                      isPlaying: music.trackId == props.onPlayMusicTrackId,
                       onTapMusic: () {
                         props.onTapItem(props.musicList[index]);
                       },
